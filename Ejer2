@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    float circunferencia, area, volumen, r, p=3.141516, D;
+    
+    cout<<"Ingrese el valor de D: ";
+    cin>>D;
+    
+    circunferencia= p * D;
+    area=p * D*D;
+    volumen=(p *D*D*D)/ 6;
+    
+    cout<<"circunferencia es: "<<circunferencia<<endl;
+    cout<<"area es: "<<area<<endl;
+    cout<<"volumen es: "<<volumen<<endl;
+    
+    return 0;
+}
