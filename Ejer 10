@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+// Función para convertir una hora (HH, MM, SS) a segundos totales
+int aSegundos(int h, int m, int s) 
+{
+    return (h * 3600) + (m * 60) + s;
+}
+
+// Función para convertir una cantidad total de segundos a HH, MM, SS
+void deSegundos(int segundos_total, int &h, int &m, int &s) 
+{
+    h = segundos_total / 3600;
+    int segundos_restantes = segundos_total % 3600;
+    m = segundos_restantes / 60;
+    s = segundos_restantes % 60;
+}
+
+int main() 
+{
+    int h1, m1, s1;
+    int h2, m2, s2;
+
+    // Pedir la primera hora
+    cout << "Ingrese la hora inicial (HH MM SS): ";
+    cin >> h1 >> m1 >> s1;
+
+    // Pedir la segunda hora
+    cout << "Ingrese la hora final (HH MM SS): ";
+    cin >> h2 >> m2 >> s2;
+
+    // Convertir ambas horas a segundos
+    int segundos1 = aSegundos(h1, m1, s1);
+    int segundos2 = aSegundos(h2, m2, s2);
+
+    // Asegurarse de que la hora inicial no sea posterior a la hora final
+    if (segundos1 > segundos2) {
+        cout << "Error: La hora inicial no puede ser posterior a la hora final." << endl;
+        return 1;
+    }
+
+    // Calcular la diferencia en segundos
+    int diferencia_segundos = segundos2 - segundos1;
+
+    // Convertir la diferencia en segundos de nuevo a HH, MM, SS
+    int dif_h, dif_m, dif_s;
+    deSegundos(diferencia_segundos, dif_h, dif_m, dif_s);
+
+    // Mostrar el resultado
+    cout << "\n--- Diferencia de tiempo ---" << endl;
+    cout << "La diferencia es: " << dif_h << " Hr, " << dif_m << " Min, " << dif_s << " Seg" << endl;
+
+    return 0;
+}
