@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int segundos_total, horas, minutos, segundos_restantes;
+
+    cout << "Ingrese la cantidad de segundos a convertir: ";
+    cin >> segundos_total;
+
+    if (segundos_total < 0) {
+        cout << "Error: La cantidad de segundos no puede ser negativa." << endl;
+        return 1;
+    }
+
+    // Calcular las horas
+    horas = segundos_total / 3600; // 1 hora = 3600 segundos
+
+    // Calcular los segundos restantes después de las horas
+    segundos_restantes = segundos_total % 3600;
+
+    // Calcular los minutos de los segundos restantes
+    minutos = segundos_restantes / 60; // 1 minuto = 60 segundos
+
+    // Calcular los segundos finales
+    segundos_restantes = segundos_restantes % 60;
+
+    // Mostrar el resultado
+    cout << "\n--- Resultado ---" << endl;
+    cout << segundos_total << " segundos equivalen a:" << endl;
+    cout << horas << " horas, " << minutos << " minutos, " << segundos_restantes << " segundos." << endl;
+
+    return 0;
+}
