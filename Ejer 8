@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    double A, B, C, D, E, F,x,y,detX,detY;
+    cout << "Ingrese coeficientes A: ";
+    cin>>A;
+    cout << "Ingrese coeficientes B: ";
+    cin>>B;
+    cout << "Ingrese coeficientes C: ";
+    cin>>C;
+    cout<<"Ingrese coeficientes D: ";
+    cin>>D;
+    cout << "Ingrese coeficientes E: ";
+    cin>>E;
+    cout << "Ingrese coeficientes F: ";
+    cin>>F;
+    
+    double determinante = A * E - B * D;
+
+    if (determinante != 0) {
+        // Caso 1: solucion única
+        x = (C * E - B * F) / determinante;
+        y = (A * F - C * D) / determinante;
+        cout << "Solucion unica: X = " << x << ", Y = " << y << endl;
+    } else {
+        // Verificar si hay infinitas soluciones o ninguna
+        detX = C * E - B * F;
+        detY = A * F - C * D;
+
+        if (detX == 0 && detY == 0) {
+            cout << "El sistema tiene infinitas soluciones." << endl;
+        } else {
+            cout << "El sistema no tiene solucion." << endl;
+        }
+    }
+
+    return 0;
+}
+//hay dos formas adicionales de resolver el ejer sist. 2 ec.: despejando x o y en una de las dos
+//y reemplazandola en la otra ec.. Luego se resta verticalmente para eliminar x o y
