@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int hora24, minuto, segundo;
+    int hora12;
+    string periodo;
+
+    cout << "Ingrese la hora en formato 24 horas (hora minuto segundo): ";
+    cin >> hora24 >> minuto >> segundo;
+
+    // Determinar AM o PM
+    if (hora24 == 0) {
+        hora12 = 12;  // medianoche
+        periodo = "AM";
+    } 
+    else if (hora24 == 12) {
+        hora12 = 12;  // mediodía
+        periodo = "PM";
+    } 
+    else if (hora24 > 12) {
+        hora12 = hora24 - 12;
+        periodo = "PM";
+    } 
+    else {
+        hora12 = hora24;
+        periodo = "AM";
+    }
+
+    cout << "Hora en formato 12 horas: " 
+         << hora12 << ":" 
+         << minuto << ":" 
+         << segundo << " " 
+         << periodo << endl;
+
+    return 0;
+}
