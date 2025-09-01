@@ -1,0 +1,29 @@
+Algoritmo ConvertirHora
+    // Definir las variables
+    Definir hora24, minuto, segundo Como Entero;
+    Definir hora12 Como Entero;
+    Definir periodo Como Caracter;
+	
+    // Solicitar al usuario que ingrese la hora en formato de 24 horas
+    Escribir "Ingrese la hora en formato 24 horas (hora minuto segundo):";
+    Leer hora24, minuto, segundo;
+	
+    // Determinar AM o PM
+    Si hora24 == 0 Entonces
+        hora12 <- 12; // Medianoche
+        periodo <- "AM";
+	FinSi
+     Si hora24 == 12 Entonces
+			hora12 <- 12; // Mediodía
+			periodo <- "PM";
+		Sino Si hora24 > 12 Entonces
+				hora12 <- hora24 - 12;
+				periodo <- "PM";
+			Sino
+				hora12 <- hora24;
+				periodo <- "AM";
+			FinSi
+		Finsi	
+			// Mostrar la hora en formato de 12 horas
+			Escribir "Hora en formato 12 horas: ", hora12, ":", minuto, ":", segundo, " ", periodo;
+FinAlgoritmo
