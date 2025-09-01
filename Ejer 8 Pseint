@@ -1,0 +1,41 @@
+Algoritmo SistemaDeEcuaciones
+    // Definir las variables
+    Definir A, B, C, D, E, F Como Real;
+    Definir x,z,detX, detY Como Real;
+    Definir determinante Como Real;
+	
+    // Pedir los coeficientes del sistema
+    Escribir "Ingrese coeficientes A: ";
+    Leer A;
+    Escribir "Ingrese coeficientes B: ";
+    Leer B;
+    Escribir "Ingrese coeficientes C: ";
+    Leer C;
+    Escribir "Ingrese coeficientes D: ";
+    Leer D;
+    Escribir "Ingrese coeficientes E: ";
+    Leer E;
+    Escribir "Ingrese coeficientes F: ";
+    Leer F;
+	
+    // Calcular el determinante del sistema
+    determinante <- A * E - B * D;
+	
+    // Evaluar las posibles soluciones
+    Si determinante <> 0 Entonces
+        // Caso 1: Solución única (Regla de Cramer)
+        x <- (C * E - B * F) / determinante;
+        z <- (A * F - C * D) / determinante;
+        Escribir "Solucion unica: X = ", x, ", Y = ", z;
+    Sino
+        // Caso 2: El sistema no tiene solucion o tiene infinitas soluciones
+        detX <- C * E - B * F;
+        detY <- A * F - C * D;
+		
+        Si detX == 0 Y detY == 0 Entonces
+            Escribir "El sistema tiene infinitas soluciones.";
+        Sino
+            Escribir "El sistema no tiene solucion.";
+        FinSi
+    FinSi
+FinAlgoritmo
