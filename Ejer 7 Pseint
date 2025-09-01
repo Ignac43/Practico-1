@@ -1,0 +1,19 @@
+Algoritmo InteresCompuesto
+    // Definir las variables
+    Definir I, C, T Como Real;
+    Definir N Como Entero;
+	
+    // Pedir los valores al usuario
+    Escribir "Ingrese valor C (capital): ";
+    Leer C;
+    Escribir "Ingrese valor N (años): ";
+    Leer N;
+    Escribir "Ingrese valor T (tasa interes): ";
+    Leer T;
+    
+    // Calcular el interés compuesto
+    I <- C * (1 + T)^N;
+    
+    // Mostrar el resultado
+    Escribir "El interes compuesto es: ", I;
+FinAlgoritmo
