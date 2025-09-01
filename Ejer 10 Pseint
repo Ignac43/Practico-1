@@ -1,0 +1,50 @@
+Algoritmo DiferenciaDeTiempo
+    // Definir las variables
+    Definir h1, m1, s1 Como Entero;
+    Definir h2, m2, s2 Como Entero;
+    Definir segundos1, segundos2 Como Entero;
+    Definir diferencia_segundos Como Entero;
+    Definir dif_h, dif_m, dif_s Como Entero;
+	
+    // Pedir la primera hora al usuario
+    Escribir "Ingrese la hora inicial (HH MM SS): ";
+    Leer h1, m1, s1;
+	
+    // Pedir la segunda hora al usuario
+    Escribir "Ingrese la hora final (HH MM SS): ";
+    Leer h2, m2, s2;
+	
+    // Convertir ambas horas a segundos
+    segundos1 <- aSegundos(h1, m1, s1);
+    segundos2 <- aSegundos(h2, m2, s2);
+	
+    // Verificar si la hora inicial es posterior a la hora final
+    Si segundos1 > segundos2 Entonces
+        Escribir "Error: La hora inicial no puede ser posterior a la hora final.";
+    Sino
+        // Calcular la diferencia en segundos
+        diferencia_segundos <- segundos2 - segundos1;
+		
+        // Convertir la diferencia en segundos de nuevo a HH, MM, SS
+        deSegundos(diferencia_segundos, dif_h, dif_m, dif_s);
+		
+        // Mostrar el resultado
+        Escribir ""; // Salto de línea
+        Escribir "--- Diferencia de tiempo ---";
+        Escribir "La diferencia es: ", dif_h, " Hr, ", dif_m, " Min, ", dif_s, " Seg";
+    FinSi
+	
+FinAlgoritmo
+
+// Definición de las funciones
+
+Funcion retorno <- aSegundos(h, m, s)
+    retorno <- (h * 3600) + (m * 60) + s;
+FinFuncion
+
+SubProceso deSegundos(segundos_total Por Valor, dif_h Por Referencia, dif_m Por Referencia, dif_s Por Referencia)
+    dif_h <- segundos_total / 3600;
+    segundos_restantes <- segundos_total MOD 3600;
+    dif_m <- segundos_restantes / 60;
+    dif_s <- segundos_restantes MOD 60;
+FinSubProceso
