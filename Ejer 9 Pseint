@@ -1,0 +1,31 @@
+Algoritmo ConvertirSegundos
+    // Definir las variables
+    Definir segundos_total, horas, minutos, segundos_restantes Como Entero;
+	
+    // Pedir al usuario la cantidad de segundos a convertir
+    Escribir "Ingrese la cantidad de segundos a convertir: ";
+    Leer segundos_total;
+	
+    // Verificar si la cantidad es negativa
+    Si segundos_total < 0 Entonces
+        Escribir "Error: La cantidad de segundos no puede ser negativa.";
+    Sino
+        // Calcular las horas
+        horas <- segundos_total / 3600; // 1 hora = 3600 segundos
+        
+        // Calcular los segundos restantes después de las horas
+        segundos_restantes <- segundos_total MOD 3600;
+        
+        // Calcular los minutos de los segundos restantes
+        minutos <- segundos_restantes / 60; // 1 minuto = 60 segundos
+        
+        // Calcular los segundos finales
+        segundos_restantes <- segundos_restantes MOD 60;
+        
+        // Mostrar el resultado
+        Escribir ""; // Salto de línea
+        Escribir "--- Resultado ---";
+        Escribir segundos_total, " segundos equivalen a:";
+        Escribir horas, " horas, ", minutos, " minutos, ", segundos_restantes, " segundos.";
+    FinSi
+FinAlgoritmo
